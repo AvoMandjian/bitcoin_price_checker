@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'crypto-price-screen.dart';
+import 'material-price-screen.dart';
+import 'home-screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,12 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Crypto Price'),
-          centerTitle: true,
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/CryptoPrice': (context) => CryptoPrice(),
+        '/MaterialPricePage': (context) => MaterialPricePage(),
+      },
     );
   }
 }
