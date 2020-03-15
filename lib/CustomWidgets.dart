@@ -26,9 +26,16 @@ class CardCustom extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              text,
+              textAlign: TextAlign.center,
+            ),
+            Icon(FontAwesomeIcons.dollarSign),
+          ],
         ),
       ),
     );
@@ -57,10 +64,6 @@ class _ButtomContainerState extends State<ButtomContainer> {
 }
 
 class DropDownCustom extends StatefulWidget {
-  const DropDownCustom({
-    Key key,
-  }) : super(key: key);
-
   @override
   _DropDownCustomState createState() => _DropDownCustomState();
 }
@@ -71,23 +74,33 @@ class _DropDownCustomState extends State<DropDownCustom> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: DropdownButton<String>(
-        value: dropdownValue,
-        icon: Icon(FontAwesomeIcons.moneyBill),
-        iconSize: 24,
-        elevation: 16,
-        onChanged: (String newValue) {
-          setState(() {
-            dropdownValue = newValue;
-          });
-        },
-        items: <String>['USD', 'EURO', 'LBP', 'JPY']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          DropdownButton<String>(
+            value: dropdownValue,
+            icon: Icon(FontAwesomeIcons.moneyBill),
+            iconSize: 24,
+            elevation: 16,
+            onChanged: (String newValue) {
+              setState(() {
+                dropdownValue = newValue;
+                return newValue;
+              });
+            },
+            items: <String>['USD', 'EURO', 'LBP', 'JPY']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+          RaisedButton(
+            onPressed: () {},
+            child: Text('Update'),
+          ),
+        ],
       ),
     );
   }

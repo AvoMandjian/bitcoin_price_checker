@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'crypto-price-screen.dart';
+import 'loadingScreen.dart';
 import 'material-price-screen.dart';
 import 'home-screen.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/CryptoPrice': (context) => CryptoPrice(),
         '/MaterialPricePage': (context) => MaterialPricePage(),
+        '/loadingScreen': (context) => LoadingScreen(),
       },
     );
   }
