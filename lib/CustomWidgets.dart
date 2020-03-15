@@ -34,73 +34,8 @@ class CardCustom extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
             ),
-            Icon(FontAwesomeIcons.dollarSign),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ButtomContainer extends StatefulWidget {
-  const ButtomContainer({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _ButtomContainerState createState() => _ButtomContainerState();
-}
-
-class _ButtomContainerState extends State<ButtomContainer> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 75,
-      width: double.infinity,
-      color: Colors.blueGrey,
-      child: DropDownCustom(),
-    );
-  }
-}
-
-class DropDownCustom extends StatefulWidget {
-  @override
-  _DropDownCustomState createState() => _DropDownCustomState();
-}
-
-class _DropDownCustomState extends State<DropDownCustom> {
-  String dropdownValue = 'USD';
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          DropdownButton<String>(
-            value: dropdownValue,
-            icon: Icon(FontAwesomeIcons.moneyBill),
-            iconSize: 24,
-            elevation: 16,
-            onChanged: (String newValue) {
-              setState(() {
-                dropdownValue = newValue;
-                return newValue;
-              });
-            },
-            items: <String>['USD', 'EURO', 'LBP', 'JPY']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          RaisedButton(
-            onPressed: () {},
-            child: Text('Update'),
-          ),
-        ],
       ),
     );
   }

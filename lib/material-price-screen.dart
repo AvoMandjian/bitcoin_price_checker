@@ -28,7 +28,6 @@ class MaterialPricePage extends StatelessWidget {
               text: 'Iron price',
             ),
           ),
-          ButtomContainer(),
         ],
       ),
     );
