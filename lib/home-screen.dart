@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           RaisedButtonCustom(
-            text: Text('Material Prices'),
+            text: Text('Metal Prices'),
             navigator: () {
               Navigator.pushNamed(context, '/MaterialPricePage');
             },
